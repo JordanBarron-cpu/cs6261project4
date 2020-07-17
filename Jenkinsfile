@@ -7,17 +7,17 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('build') {
+    stage('test') {
       steps {
         sh 'ng test'
       }
     }
-    stage('build') {
+    stage('e2e') {
       steps {
         echo 'Not Yet Implemented'
       }
     }
-    stage('build') {
+    stage('deploy') {
       steps {
         echo 'Not Yet Implemented'
       }
