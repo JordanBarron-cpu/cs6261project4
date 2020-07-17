@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cs6261project4"
+    }
+  },
+  "defaultProject": "cs6261project4",
+  "cli": {
+    "analytics": "0307b0ac-4036-4f08-a21a-c897b54280f1"
+  }
 }
