@@ -20,7 +20,8 @@ pipeline {
       steps {
         sh 'docker build . --tag myimage:testimage'
         sh 'docker run --name=testcontainer -d -v $WORKSPACE:/app -p 4200:4200 myimage:testimage'
-        sh '$WORKSPACE/node_modules/protractor/bin/webdriver-manager update'
+        sh 'npm install protractor'
+        sh 'webdriver-manager update'
         sh 'ng e2e --devServerTarget='
       }
     }
