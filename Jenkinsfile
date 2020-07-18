@@ -14,8 +14,6 @@ pipeline {
     }
     stage('e2e tests') {
       steps {
-        sh 'WORKSPACE=/home/jbarron8/Documents/cs6261project4'
-
         sh 'docker build . --tag myimage:testimage'
         sh 'docker run --name=testcontainer -d -v $WORKSPACE:/app -p 4200:4200 myimage:testimage'
         sh './node_modules/protractor/bin/webdriver-manager update'
