@@ -4,11 +4,8 @@
   <div>
     <label for="sigFigs">Digits</label>
     <br>
-    <select name="sigFigs" id="sigFig1">
-      <option value="black">Black</option>
-      <option value="saab">Saab</option>
-      <option value="opel">Opel</option>
-      <option value="audi">Audi</option>
+    <select name="sigFigs" id="sigFig1" >
+        <option *ngFor="let color of colors; index as colorSlot; trackBy: trackColorBySlot" value="colors[colorSlot]">{{color}}</option>
     </select>
     <select name="sigFigs" id="sigFig2">
       <option value="black">Black</option>
