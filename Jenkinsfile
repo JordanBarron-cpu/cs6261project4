@@ -36,7 +36,7 @@ pipeline {
     always {
       sh 'docker stop testcontainer || true'
       sh 'docker rm testcontainer || true'
-      sh 'docker images rm testimage || true'
+      sh 'docker images rm myimage:testimage || true'
     }
   }
 }
