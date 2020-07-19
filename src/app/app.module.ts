@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResistanceComponent } from './resistance/resistance.component';
 import { DebugComponent } from './debug/debug.component';
+import { ResistanceService } from './services/resistance.service'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { DebugComponent } from './debug/debug.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ResistanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
