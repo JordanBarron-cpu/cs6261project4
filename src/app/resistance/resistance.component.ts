@@ -7,16 +7,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResistanceComponent implements OnInit {
   public colors: string[];
+  public sigFiguresList: string[];
+  // public sigFiguresDict: any;
 
   constructor() { }
 
   ngOnInit(): void {
     this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
                 'violet', 'grey', 'white', 'gold', 'silver', 'none'];
+    this.sigFiguresList = [
+      this.colors[0], this.colors[1], this.colors[2], this.colors[3], this.colors[4], this.colors[5], this.colors[6],
+                  this.colors[7], this.colors[8], this.colors[9]
+                          ];
+    // this.sigFiguresDict = {
+    //                 'black': 0, 'brown': 1,
+    //                 'red': 2, 'orange': 3,
+    //                 'yellow': 4, 'green': 5,
+    //                 'blue': 6, 'violet': 7,
+    //                 'grey': 8, 'white': 9};
   }
 
-  trackColorBySlot(index, color) {
-    return color.index;
+  getColors(): string[] {
+    return this.colors;
+  }
+
+  getSigFiguresList(): string[] {
+    return this.sigFiguresList;
+  }
+
+  //
+  // getSigFiguresDict() : any {
+  //   return this.sigFiguresDict;
+  // }
+  //
+  // getSigFiguresKeys(): string[] {
+  //   return this.sigFiguresDict.keys();
+  // }
+  //
+  // getSigFiguresValues(): number[] {
+  //   return this.sigFiguresDict.values();
+  // }
+
+  trackSigFigBySlot(index, sigFiguresList) {
+    return sigFiguresList.index;
   }
 
 }

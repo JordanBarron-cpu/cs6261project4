@@ -5,19 +5,13 @@
     <label for="sigFigs">Digits</label>
     <br>
     <select name="sigFigs" id="sigFig1" >
-        <option *ngFor="let color of colors; index as colorSlot; trackBy: trackColorBySlot" value="colors[colorSlot]">{{color}}</option>
+        <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot" value="sigFiguresList[sigFigSpot]">{{sigFig}}</option>
     </select>
     <select name="sigFigs" id="sigFig2">
-      <option value="black">Black</option>
-      <option value="saab">Saab</option>
-      <option value="opel">Opel</option>
-      <option value="audi">Audi</option>
+      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot" value="sigFiguresList[sigFigSpot]">{{sigFig}}</option>
     </select>
     <select name="sigFigs" id="sigFig3">
-      <option value="black">Black</option>
-      <option value="saab">Saab</option>
-      <option value="opel">Opel</option>
-      <option value="audi">Audi</option>
+      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot" value="sigFiguresList[sigFigSpot]">{{sigFig}}</option>
     </select>
   </div>
 
