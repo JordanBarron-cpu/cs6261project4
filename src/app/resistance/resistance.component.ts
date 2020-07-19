@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResistanceService } from '../services/resistance.service';
 
 @Component({
   selector: 'app-resistance',
@@ -17,11 +18,12 @@ export class ResistanceComponent implements OnInit {
   public toleranceDict: any;
 
 
-  constructor() { }
+  constructor(private resistanceService: ResistanceService) { }
 
   ngOnInit(): void {
     this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
                 'violet', 'grey', 'white', 'gold', 'silver', 'none'];
+                
     this.sigFiguresList = [this.colors[0], this.colors[1], this.colors[2],
                           this.colors[3], this.colors[4], this.colors[5],
                           this.colors[6], this.colors[7], this.colors[8],
