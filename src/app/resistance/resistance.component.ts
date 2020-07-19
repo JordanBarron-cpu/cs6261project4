@@ -43,6 +43,9 @@ export class ResistanceComponent implements OnInit {
                           this.colors[10], this.colors[11],
                           this.colors[12]
                           ];
+    this.multiplierSelectBox = ['x1', 'x10', 'x100', 'x1k', 'x10k', 'x100K',
+                              'x1M', 'x10M', 'x100M', 'x1G', 'x0.1', 'x0.01'];
+    this.toleranceSelectBox = ['1%', '2%', '.5%', '.25%', '.1%', '0.05%', '5%', '10%', '20%'];
     //
     // this.sigFiguresDict = {
     //                 'black': 0, 'brown': 1,

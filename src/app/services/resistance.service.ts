@@ -7,13 +7,20 @@ export class ResistanceService {
   public colors: string[];
   private theCalculation: number;
   public sigFiguresDict: any;
-  public multiplerDict: any;
+  public multiplierDict: any;
   public toleranceDict: any;
+  public sigFigure1: number;
+  public sigFigure2: number;
+  public sigFigure3: number;
+  public multiplier: number;
+  public multiplierUnit: string;
+  public tolerance: number;
 
   constructor() {
     this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
                 'violet', 'grey', 'white', 'gold', 'silver', 'none'];
     this.theCalculation = 0;
+
     this.sigFiguresDict = {
                     'black': 0, 'brown': 1,
                     'red': 2, 'orange': 3,
@@ -22,7 +29,7 @@ export class ResistanceService {
                     'grey': 8, 'white': 9
                   };
 
-    this.multiplerDict = {
+    this.multiplierDict = {
                     'black': 1, 'brown': 10,
                     'red': 100, 'orange': 1,
                     'yellow': 10, 'green': 100,
@@ -40,20 +47,20 @@ export class ResistanceService {
                   };
   }
 
-  setSigFigure1(color: String) {
+  setSigFigure1(color: string) {
     this.sigFigure1 = this.sigFiguresDict[color];
   }
 
-  setSigFigure2(color: String) {
+  setSigFigure2(color: string) {
     this.sigFigure2 = this.sigFiguresDict[color];
   }
 
-  setSigFigure3(color: String) {
+  setSigFigure3(color: string) {
     this.sigFigure3 = this.sigFiguresDict[color];
   }
 
-  setMultiplier(color: String) {
-    this.multiplier = this.multiplerDict[color];
+  setMultiplier(color: string) {
+    this.multiplier = this.multiplierDict[color];
     if (color == "black" || color == "brown" || color == "red" || color == "gold" || color == "silver") {
       this.multiplierUnit = '';
     } else if(color == "orange" || color == "yellow" || color == "green") {
@@ -65,7 +72,7 @@ export class ResistanceService {
     }
   }
 
-  setTolerance(color: String) {
+  setTolerance(color: string) {
     this.tolerance = this.toleranceDict[color];
   }
 
@@ -92,11 +99,11 @@ export class ResistanceService {
   }
 
   getCalculation(): number {
-    this.theCalculation = getSigFigure1() getSigFigure2() getSigFigure3() * getMultiplier();
+    this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
     return this.theCalculation;
   }
 
   calculationToString(): string {
-      return this.getCalculation() + getMultiplierUnit() + " +/- " + getTolerance() + "%";
+      return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
   }
 }

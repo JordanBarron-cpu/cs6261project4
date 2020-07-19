@@ -6,17 +6,17 @@
     <br>
     <select name="sigFigs" id="sigFig1" >
         <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
-          value="sigFiguresDict[sigFiguresList[sigFigSpot]]">
+          value="sigFiguresList[sigFigSpot]">
           {{ sigFiguresList[sigFigSpot] }}</option>
     </select>
     <select name="sigFigs" id="sigFig2">
       <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
-        value="sigFiguresDict[sigFiguresList[sigFigSpot]]">
+        value="sigFiguresList[sigFigSpot]">
         {{ sigFiguresList[sigFigSpot] }}</option>
     </select>
     <select name="sigFigs" id="sigFig3">
       <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
-        value="sigFiguresDict[sigFiguresList[sigFigSpot]]">
+        value="sigFiguresList[sigFigSpot]">
         {{ sigFiguresList[sigFigSpot] }}</option>
     </select>
   </div>
@@ -27,7 +27,7 @@
     <select name="multiply" id="muliplier">
       <option *ngFor="let multiplier of multiplierList; index as multiplierSlot; trackBy: trackMultiplierBySlot"
         value="multiplierList[multiplierSlot]">
-        {{ multiplerDict[multiplierList[multiplierSlot]] }}</option>
+        {{ multiplierSelectBox[multiplierSlot] }}</option>
     </select>
   </div>
 
@@ -37,7 +37,7 @@
     <select name="tolerance" id="tolerance">
       <option *ngFor="let tolerance of toleranceList; index as toleranceSlot; trackBy: trackToleranceBySlot"
         value="toleranceList[toleranceSlot]">
-        {{ toleranceDict[toleranceList[toleranceSlot]] + '%' }}</option>
+        {{ toleranceSelectBox[toleranceSlot] }}</option>
     </select>
   </div>
 
