@@ -23,12 +23,12 @@ export class ResistanceService {
                   };
 
     this.multiplerDict = {
-                    'black': 'x1', 'brown': 'x10',
-                    'red': 'x100', 'orange': 'x1K',
-                    'yellow': 'x10K', 'green': 'x100K',
-                    'blue': 'x1M', 'violet': 'x10M',
-                    'grey': 'x100M', 'white': 'x1G',
-                    'gold': 'x0.1', 'silver': 'x0.01'
+                    'black': 1, 'brown': 10,
+                    'red': 100, 'orange': 1,
+                    'yellow': 10, 'green': 100,
+                    'blue': 1, 'violet': 10,
+                    'grey': 100, 'white': 1,
+                    'gold': 0.1, 'silver': 0.01
                   };
 
     this.toleranceDict = {
