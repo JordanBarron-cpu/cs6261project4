@@ -8,23 +8,29 @@ import { Component, OnInit } from '@angular/core';
 export class ResistanceComponent implements OnInit {
   public colors: string[];
   public sigFiguresList: string[];
-  // public sigFiguresDict: any;
+  public multiplierList: string[];
+  public tolerance: number[];
+  public sigFiguresDict: any;
 
   constructor() { }
 
   ngOnInit(): void {
     this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
                 'violet', 'grey', 'white', 'gold', 'silver', 'none'];
-    this.sigFiguresList = [
-      this.colors[0], this.colors[1], this.colors[2], this.colors[3], this.colors[4], this.colors[5], this.colors[6],
-                  this.colors[7], this.colors[8], this.colors[9]
+    this.sigFiguresList = [this.colors[0], this.colors[1], this.colors[2],
+                          this.colors[3], this.colors[4], this.colors[5],
+                          this.colors[6], this.colors[7], this.colors[8],
+                          this.colors[9]
                           ];
-    // this.sigFiguresDict = {
-    //                 'black': 0, 'brown': 1,
-    //                 'red': 2, 'orange': 3,
-    //                 'yellow': 4, 'green': 5,
-    //                 'blue': 6, 'violet': 7,
-    //                 'grey': 8, 'white': 9};
+    this.multiplierList = [];
+    this.tolerance = [];
+
+    this.sigFiguresDict = {
+                    'black': 0, 'brown': 1,
+                    'red': 2, 'orange': 3,
+                    'yellow': 4, 'green': 5,
+                    'blue': 6, 'violet': 7,
+                    'grey': 8, 'white': 9};
   }
 
   getColors(): string[] {
@@ -35,10 +41,17 @@ export class ResistanceComponent implements OnInit {
     return this.sigFiguresList;
   }
 
-  //
-  // getSigFiguresDict() : any {
-  //   return this.sigFiguresDict;
-  // }
+  getMultiplierList(): string[] {
+    return this.multiplierList;
+  }
+
+  getTolerance(): number[] {
+    return this.tolerance;
+  }
+
+  getSigFiguresDict(color: string) : any {
+    return this.sigFiguresDict[color];
+  }
   //
   // getSigFiguresKeys(): string[] {
   //   return this.sigFiguresDict.keys();

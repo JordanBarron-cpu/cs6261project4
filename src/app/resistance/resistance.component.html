@@ -5,13 +5,19 @@
     <label for="sigFigs">Digits</label>
     <br>
     <select name="sigFigs" id="sigFig1" >
-        <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot" value="sigFiguresList[sigFigSpot]">{{sigFig}}</option>
+        <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
+          value="sigFiguresDict[sigFiguresList[sigFigSpot]]">
+          {{ sigFiguresList[sigFigSpot] }}</option>
     </select>
     <select name="sigFigs" id="sigFig2">
-      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot" value="sigFiguresList[sigFigSpot]">{{sigFig}}</option>
+      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
+        value="sigFiguresDict[sigFiguresList[sigFigSpot]]">
+        {{ sigFiguresList[sigFigSpot] }}</option>
     </select>
     <select name="sigFigs" id="sigFig3">
-      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot" value="sigFiguresList[sigFigSpot]">{{sigFig}}</option>
+      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
+        value="sigFiguresDict[sigFiguresList[sigFigSpot]]">
+        {{ sigFiguresList[sigFigSpot] }}</option>
     </select>
   </div>
 
