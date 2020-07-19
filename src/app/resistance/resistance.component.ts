@@ -22,7 +22,11 @@ export class ResistanceComponent implements OnInit {
                           this.colors[6], this.colors[7], this.colors[8],
                           this.colors[9]
                           ];
-    this.multiplierList = [];
+    this.multiplierList = [this.colors[0], this.colors[1], this.colors[2],
+                          this.colors[3], this.colors[4], this.colors[5],
+                          this.colors[6], this.colors[7], this.colors[8],
+                          this.colors[9], this.colors[10], this.colors[11]
+                          ];
     this.tolerance = [];
 
     this.sigFiguresDict = {
@@ -30,7 +34,16 @@ export class ResistanceComponent implements OnInit {
                     'red': 2, 'orange': 3,
                     'yellow': 4, 'green': 5,
                     'blue': 6, 'violet': 7,
-                    'grey': 8, 'white': 9};
+                    'grey': 8, 'white': 9
+                  };
+
+    this.sigFiguresDict = {
+                    'black': 0, 'brown': 1,
+                    'red': 2, 'orange': 3,
+                    'yellow': 4, 'green': 5,
+                    'blue': 6, 'violet': 7,
+                    'grey': 8, 'white': 9
+                    };
   }
 
   getColors(): string[] {
