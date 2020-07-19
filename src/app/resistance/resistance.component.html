@@ -25,10 +25,9 @@
     <label for="multiply">Multiplier</label>
     <br>
     <select name="multiply" id="muliplier">
-      <option value="black">Black</option>
-      <option value="saab">Saab</option>
-      <option value="opel">Opel</option>
-      <option value="audi">Audi</option>
+      <option *ngFor="let multiplier of multiplierList; index as multiplierSlot; trackBy: trackMultiplierBySlot"
+        value="multiplierList[multiplierSlot]">
+        {{ multiplerDict[multiplierList[multiplierSlot]] }}</option>
     </select>
   </div>
 
@@ -36,10 +35,9 @@
     <label for="tolerance">Tolerance</label>
     <br>
     <select name="tolerance" id="tolerance">
-      <option value="black">Black</option>
-      <option value="saab">Saab</option>
-      <option value="opel">Opel</option>
-      <option value="audi">Audi</option>
+      <option *ngFor="let tolerance of toleranceList; index as toleranceSlot; trackBy: trackToleranceBySlot"
+        value="toleranceList[toleranceSlot]">
+        {{ toleranceDict[toleranceList[toleranceSlot]] + '%' }}</option>
     </select>
   </div>
 
