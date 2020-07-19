@@ -1,12 +1,17 @@
 <div class="resistanceComponent">
-  <h2>Resistance: </h2>
+  <div>
+    <b>{{ message }}</b>
+  </div>
+
   <p>Select bands</p>
   <div>
     <label for="sigFigs">Digits</label>
     <br>
     <select name="sigFigs" id="sigFig1" >
         <option *ngFor="let sigFig of sigFigure.sigFiguresList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
-          value="sigFigure.setSigFigure(sigFig)">
+          value="sigFigure.getSigFigureDictValue()"
+          (click)="sigFigure.setSigFigure(sigFig)"
+          (click)="setMessage()">
           {{ sigFig }}</option>
     </select>
     <!-- <select name="sigFigs" id="sigFig2">
@@ -19,7 +24,7 @@
         value="sigFiguresList[sigFigSpot]">
         {{ sigFiguresList[sigFigSpot] }}</option> -->
     <!-- </select> -->
-  </div>
+  <!-- </div>
 
   <div>
     <label for="multiply">Multiplier</label>
@@ -39,6 +44,6 @@
         value="toleranceList[toleranceSlot]">
         {{ toleranceSelectBox[toleranceSlot] }}</option>
     </select>
-  </div>
+  </div> -->
 
 </div>

@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ResistanceService {
+  public sigFigureResistanceBuild: number;
   // public colors: string[];
-  // private theCalculation: number;
+  private theCalculation: number;
   // public sigFiguresDict: any;
   public multiplierDict: any;
   public toleranceDict: any;
@@ -17,6 +18,7 @@ export class ResistanceService {
   public tolerance: number;
 
   constructor() {
+      this.sigFigureResistanceBuild = 0;
     // this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
     //             'violet', 'grey', 'white', 'gold', 'silver', 'none'];
     // this.theCalculation = 0;
@@ -48,7 +50,7 @@ export class ResistanceService {
   }
 
   addSigFigureResistanceBuild(sigFigureDictValue: number) {
-
+      this.sigFigureResistanceBuild = sigFigureDictValue;
   }
 
   // setSigFigure1(color: string) {
@@ -89,6 +91,9 @@ export class ResistanceService {
   // getSigFigure3(): number  {
   //   return this.sigFigure3;
   // }
+  getSigFigureResistanceBuild() {
+    return this.sigFigureResistanceBuild;
+  }
 
   getMultiplier(): number  {
     return this.multiplier;
@@ -102,12 +107,14 @@ export class ResistanceService {
     return this.tolerance;
   }
 
-  // getCalculation(): number {
-  //   this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
-  //   return this.theCalculation;
-  // }
-  // 
-  // calculationToString(): string {
-  //     return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
-  // }
+  getCalculation(): number {
+    this.theCalculation = this.getSigFigureResistanceBuild();
+    // this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
+    return this.theCalculation;
+  }
+
+  calculationToString(): string {
+    return this.getCalculation() + "";
+      // return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
+  }
 }

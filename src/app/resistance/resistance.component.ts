@@ -10,14 +10,15 @@ import { Tolerance } from '../model/tolerance';
   styleUrls: ['./resistance.component.css']
 })
 export class ResistanceComponent implements OnInit {
-  public colors: string[];
+  // public colors: string[];
   public sigFigure: SigFigure;
+  public message: string;
   // public sigFiguresList: string[];
-  public multiplierList: string[];
-  public toleranceList: string[];
-
-  public multiplierSelectBox: string[];
-  public toleranceSelectBox: string[];
+  // public multiplierList: string[];
+  // public toleranceList: string[];
+  //
+  // public multiplierSelectBox: string[];
+  // public toleranceSelectBox: string[];
   //
   // public sigFiguresDict: any;
   // public multiplerDict: any;
@@ -27,7 +28,8 @@ export class ResistanceComponent implements OnInit {
   constructor(private resistanceService: ResistanceService) { }
 
   ngOnInit(): void {
-    this.sigFigure= new SigFigure();
+    this.sigFigure = new SigFigure();
+    this.message = "";
     // this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
     //             'violet', 'grey', 'white', 'gold', 'silver', 'none'];
 
@@ -36,20 +38,20 @@ export class ResistanceComponent implements OnInit {
     //                       this.colors[6], this.colors[7], this.colors[8],
     //                       this.colors[9]
     //                       ];
-    this.multiplierList = [this.colors[0], this.colors[1], this.colors[2],
-                          this.colors[3], this.colors[4], this.colors[5],
-                          this.colors[6], this.colors[7], this.colors[8],
-                          this.colors[9], this.colors[10], this.colors[11]
-                          ];
-    this.toleranceList = [this.colors[1], this.colors[2],
-                          this.colors[5], this.colors[6],
-                          this.colors[7], this.colors[8],
-                          this.colors[10], this.colors[11],
-                          this.colors[12]
-                          ];
-    this.multiplierSelectBox = ['x1', 'x10', 'x100', 'x1k', 'x10k', 'x100K',
-                              'x1M', 'x10M', 'x100M', 'x1G', 'x0.1', 'x0.01'];
-    this.toleranceSelectBox = ['1%', '2%', '.5%', '.25%', '.1%', '0.05%', '5%', '10%', '20%'];
+    // this.multiplierList = [this.colors[0], this.colors[1], this.colors[2],
+    //                       this.colors[3], this.colors[4], this.colors[5],
+    //                       this.colors[6], this.colors[7], this.colors[8],
+    //                       this.colors[9], this.colors[10], this.colors[11]
+    //                       ];
+    // this.toleranceList = [this.colors[1], this.colors[2],
+    //                       this.colors[5], this.colors[6],
+    //                       this.colors[7], this.colors[8],
+    //                       this.colors[10], this.colors[11],
+    //                       this.colors[12]
+    //                       ];
+    // this.multiplierSelectBox = ['x1', 'x10', 'x100', 'x1k', 'x10k', 'x100K',
+    //                           'x1M', 'x10M', 'x100M', 'x1G', 'x0.1', 'x0.01'];
+    // this.toleranceSelectBox = ['1%', '2%', '.5%', '.25%', '.1%', '0.05%', '5%', '10%', '20%'];
     //
     // this.sigFiguresDict = {
     //                 'black': 0, 'brown': 1,
@@ -77,21 +79,28 @@ export class ResistanceComponent implements OnInit {
     //               };
   }
 
-  getColors(): string[] {
-    return this.colors;
+  setMessage() {
+    if (this.sigFigure.getSigFigureDictValue()) {
+      this.resistanceService.addSigFigureResistanceBuild(this.sigFigure.getSigFigureDictValue());
+      this.message = this.resistanceService.calculationToString();
+    }
   }
+
+  // getColors(): string[] {
+  //   return this.colors;
+  // }
 
   // getSigFiguresList(): string[] {
   //   return this.sigFiguresList;
   // }
 
-  getMultiplierList(): string[] {
-    return this.multiplierList;
-  }
-
-  getToleranceList(): string[] {
-    return this.toleranceList;
-  }
+  // getMultiplierList(): string[] {
+  //   return this.multiplierList;
+  // }
+  //
+  // getToleranceList(): string[] {
+  //   return this.toleranceList;
+  // }
 
   trackSigFigureBySlot(index, sigFiguresList) {
     return sigFiguresList.index;
