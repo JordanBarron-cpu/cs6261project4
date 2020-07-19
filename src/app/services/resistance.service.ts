@@ -57,11 +57,11 @@ export class ResistanceService {
     if (color == "black" || color == "brown" || color == "red" || color == "gold" || color == "silver") {
       this.multiplierUnit = '';
     } else if(color == "orange" || color == "yellow" || color == "green") {
-      this.multiplierUnit = '';
-    } else if() {
-      this.multiplierUnit = '';
+      this.multiplierUnit = 'K';
+    } else if(color == "blue" || color == "violet" || color == "grey") {
+      this.multiplierUnit = 'G';
     } else {
-      this.multiplierUnit = '';
+      this.multiplierUnit = 'M';
     }
   }
 
@@ -83,6 +83,10 @@ export class ResistanceService {
     return this.multiplier;
   }
 
+  getMultiplierUnit(): string {
+    return this.multiplierUnit;
+  }
+
   getTolerance(): number {
     return this.tolerance;
   }
@@ -93,14 +97,6 @@ export class ResistanceService {
   }
 
   calculationToString(): string {
-    if() {
-      return this.getCalculation() + "K +/- " + getTolerance() + "%";
-    } else if() {
-      return this.getCalculation() + "M +/- " + getTolerance() + "%";
-    } else if() {
-      return this.getCalculation() + "G +/- " + getTolerance() + "%";
-    } else {
-      return this.getCalculation() + " +/- " + getTolerance() + "%";
-    }
+      return this.getCalculation() + getMultiplierUnit() + " +/- " + getTolerance() + "%";
   }
 }
