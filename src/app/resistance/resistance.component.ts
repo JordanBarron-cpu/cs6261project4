@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResistanceService } from '../services/resistance.service';
-import { SigFigure } from '../model/sig-Figure';
+import { SigFigure } from '../model/sig-figure';
 import { Multiplier } from '../model/multiplier';
 import { Tolerance } from '../model/tolerance';
 
@@ -11,8 +11,8 @@ import { Tolerance } from '../model/tolerance';
 })
 export class ResistanceComponent implements OnInit {
   public colors: string[];
-
-  public sigFiguresList: string[];
+  public sigFigure: SigFigure;
+  // public sigFiguresList: string[];
   public multiplierList: string[];
   public toleranceList: string[];
 
@@ -27,14 +27,15 @@ export class ResistanceComponent implements OnInit {
   constructor(private resistanceService: ResistanceService) { }
 
   ngOnInit(): void {
-    this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
-                'violet', 'grey', 'white', 'gold', 'silver', 'none'];
+    this.sigFigure= new SigFigure();
+    // this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
+    //             'violet', 'grey', 'white', 'gold', 'silver', 'none'];
 
-    this.sigFiguresList = [this.colors[0], this.colors[1], this.colors[2],
-                          this.colors[3], this.colors[4], this.colors[5],
-                          this.colors[6], this.colors[7], this.colors[8],
-                          this.colors[9]
-                          ];
+    // this.sigFiguresList = [this.colors[0], this.colors[1], this.colors[2],
+    //                       this.colors[3], this.colors[4], this.colors[5],
+    //                       this.colors[6], this.colors[7], this.colors[8],
+    //                       this.colors[9]
+    //                       ];
     this.multiplierList = [this.colors[0], this.colors[1], this.colors[2],
                           this.colors[3], this.colors[4], this.colors[5],
                           this.colors[6], this.colors[7], this.colors[8],
@@ -80,9 +81,9 @@ export class ResistanceComponent implements OnInit {
     return this.colors;
   }
 
-  getSigFiguresList(): string[] {
-    return this.sigFiguresList;
-  }
+  // getSigFiguresList(): string[] {
+  //   return this.sigFiguresList;
+  // }
 
   getMultiplierList(): string[] {
     return this.multiplierList;
@@ -92,7 +93,7 @@ export class ResistanceComponent implements OnInit {
     return this.toleranceList;
   }
 
-  trackSigFigBySlot(index, sigFiguresList) {
+  trackSigFigureBySlot(index, sigFiguresList) {
     return sigFiguresList.index;
   }
 
