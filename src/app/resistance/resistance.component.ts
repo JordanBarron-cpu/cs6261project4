@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ResistanceService } from '../services/resistance.service';
+import { SigFigure } from '../model/sig-Figure';
+import { Multiplier } from '../model/multiplier';
+import { Tolerance } from '../model/tolerance';
 
 @Component({
   selector: 'app-resistance',
