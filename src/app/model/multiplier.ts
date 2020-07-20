@@ -7,7 +7,7 @@ export class Multiplier {
 
   constructor() {
     this.multiplier = 1;
-    this.multiplierUnit = "";
+    this.multiplierUnit = '';
     this.multiplierColorList = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white', 'gold', 'silver'];
     this.multiplierDict = {
                           'black': 1, 'brown': 10,

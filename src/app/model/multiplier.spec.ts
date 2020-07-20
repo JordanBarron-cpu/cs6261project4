@@ -35,4 +35,25 @@ describe('Multiplier', () => {
     expect(m.getMultiplierDictValue()).toEqual(100);
   });
 
+  it('should set and get multiplier correctly 2', () => {
+    let m = new Multiplier();
+    expect(m.getMultiplierDictValue()).toEqual(1);
+    m.setMultiplier('silver');
+    expect(m.getMultiplierDictValue()).toEqual(0.01);
+  });
+
+  it('should set and get multiplier unit correctly', () => {
+    let m = new Multiplier();
+    expect(m.getMultiplierUnitDictValue()).toEqual('');
+    m.setMultiplierUnit('red');
+    expect(m.getMultiplierUnitDictValue()).toEqual('');
+  });
+
+  it('should set and get multiplier unit correctly 2', () => {
+    let m = new Multiplier();
+    expect(m.getMultiplierUnitDictValue()).toEqual('');
+    m.setMultiplierUnit('white');
+    expect(m.getMultiplierUnitDictValue()).toEqual('G');
+  });
+
 });

@@ -9,7 +9,7 @@ import { ResistanceService } from './services/resistance.service'
 @NgModule({
   declarations: [
     AppComponent,
-    ResistanceComponent,
+    ResistanceComponent
   ],
   imports: [
     BrowserModule,

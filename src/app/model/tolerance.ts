@@ -1,6 +1,6 @@
 export class Tolerance {
   public toleranceColorList: string[];
-  private toleranceDict: any;
+  public toleranceDict: any;
   public tolerance: number;
 
   constructor() {
