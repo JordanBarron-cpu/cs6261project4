@@ -1,6 +1,6 @@
 export class Multiplier {
   public multiplierColorList: string[];
-  private multiplierDict: any;
+  public multiplierDict: any;
   public multiplier: number;
   public multiplierUnitDict: any;
   public multiplierUnit: string;

@@ -4,14 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResistanceComponent } from './resistance/resistance.component';
-import { DebugComponent } from './debug/debug.component';
 import { ResistanceService } from './services/resistance.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     ResistanceComponent,
-    DebugComponent
   ],
   imports: [
     BrowserModule,
