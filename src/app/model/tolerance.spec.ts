@@ -19,16 +19,16 @@ describe('Tolerance', () => {
   });
 
   it('should set and get Tolerance correctly', () => {
-    let m = new Tolerance();
-    expect(m.getToleranceDictValue()).toEqual(1);
-    m.setTolerance('green');
-    expect(m.getToleranceDictValue()).toEqual(.5);
+    let t = new Tolerance();
+    expect(t.getToleranceDictValue()).toEqual(1);
+    t.setTolerance('green');
+    expect(t.getToleranceDictValue()).toEqual(.5);
   });
 
   it('should set and get Tolerance correctly 2', () => {
-    let m = new Tolerance();
-    expect(m.getToleranceDictValue()).toEqual(1);
-    m.setTolerance('none');
-    expect(m.getToleranceDictValue()).toEqual(20);
+    let t = new Tolerance();
+    expect(t.getToleranceDictValue()).toEqual(1);
+    t.setTolerance('none');
+    expect(t.getToleranceDictValue()).toEqual(20);
   });
 });

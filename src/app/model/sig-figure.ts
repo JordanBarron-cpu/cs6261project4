@@ -1,6 +1,6 @@
 export class SigFigure {
   public sigFiguresColorList: string[];
-  private sigFiguresDict: any;
+  public sigFiguresDict: any;
   public sigFigure: number;
 
   constructor() {
