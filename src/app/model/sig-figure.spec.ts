@@ -32,4 +32,22 @@ describe('SigFigure', () => {
       s.setSigFigure('orange');
       expect(s.getSigFigureDictValue()).toEqual(3);
     });
+
+    it('should throw errors SigFigure', () => {
+      let s = new SigFigure();
+      var result = function() {
+        s.setSigFigure(null);
+      }
+      expect(result).toThrow("color cannot be null");
+
+      var result2 = function() {
+        s.setSigFigure('');
+      }
+      expect(result2).toThrow("color cannot be empty");
+
+      var result3 = function() {
+        s.setSigFigure('Indigo');
+      }
+      expect(result3).toThrow("color is not in list");
+    });
 });

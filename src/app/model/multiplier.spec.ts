@@ -56,4 +56,40 @@ describe('Multiplier', () => {
     expect(m.getMultiplierUnitDictValue()).toEqual('G');
   });
 
+  it('should throw errors multiplier', () => {
+    let m = new Multiplier();
+    var result = function() {
+      m.setMultiplier(null);
+    }
+    expect(result).toThrow("color cannot be null");
+
+    var result2 = function() {
+      m.setMultiplier('');
+    }
+    expect(result2).toThrow("color cannot be empty");
+
+    var result3 = function() {
+      m.setMultiplier('cerulean');
+    }
+    expect(result3).toThrow("color is not in list");
+  });
+
+  it('should throw errors multiplier unit', () => {
+    let m = new Multiplier();
+    var result = function() {
+      m.setMultiplierUnit(null);
+    }
+    expect(result).toThrow("color cannot be null");
+
+    var result2 = function() {
+      m.setMultiplierUnit('');
+    }
+    expect(result2).toThrow("color cannot be empty");
+
+    var result3 = function() {
+      m.setMultiplierUnit('burgundy');
+    }
+    expect(result3).toThrow("color is not in list");
+  });
+
 });

@@ -31,4 +31,22 @@ describe('Tolerance', () => {
     t.setTolerance('none');
     expect(t.getToleranceDictValue()).toEqual(20);
   });
+
+  it('should throw errors Tolerance', () => {
+    let t = new Tolerance();
+    var result = function() {
+      t.setTolerance(null);
+    }
+    expect(result).toThrow("color cannot be null");
+
+    var result2 = function() {
+      t.setTolerance('');
+    }
+    expect(result2).toThrow("color cannot be empty");
+
+    var result3 = function() {
+      t.setTolerance('purple');
+    }
+    expect(result3).toThrow("color is not in list");
+  });
 });
