@@ -1,9 +1,11 @@
 import { browser, element, by } from 'protractor';
+import { Helper } from './models/helper';
 
 describe('successful scenario tests', () => {
+  let helper = new Helper();
+
   it('load Home', () => {
-    browser.get('/');
-    let actual = element(by.id('resistanceMessage')).getText();
-    expect(actual).toEqual("Resistance:");
+    helper.loadHome();
+    helper.idTextExpectation('resistanceMessage', 'Resistance:');
   });
 });
