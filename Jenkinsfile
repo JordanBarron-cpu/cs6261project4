@@ -37,6 +37,7 @@ pipeline {
       sh 'docker stop testcontainer || true'
       sh 'docker rm testcontainer || true'
       sh 'docker image rm myimage:testimage || true'
+      sh 'docker image rm node:12 || true'
     }
   }
 }

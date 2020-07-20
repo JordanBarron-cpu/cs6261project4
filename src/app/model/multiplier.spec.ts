@@ -4,6 +4,7 @@ describe('Multiplier', () => {
   it('should create an instance', () => {
     expect(new Multiplier()).toBeTruthy();
   });
+
   it('should initialize all values correctly', () => {
     let m = new Multiplier();
     expect(m.multiplier).toEqual(1);
@@ -25,6 +26,13 @@ describe('Multiplier', () => {
                           'grey': 'M', 'white': 'G',
                           'gold': '', 'silver': ''
                           });
+  });
+
+  it('should set and get multiplier correctly', () => {
+    let m = new Multiplier();
+    expect(m.getMultiplierDictValue()).toEqual(1);
+    m.setMultiplier('red');
+    expect(m.getMultiplierDictValue()).toEqual(100);
   });
 
 });
