@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ResistanceService {
-  private theCalculation: string;
+  private theCalculation: number;
   public sigFigure1ResistanceBuild: number;
   public sigFigure2ResistanceBuild: number;
   public sigFigure3ResistanceBuild: number;
@@ -12,9 +12,8 @@ export class ResistanceService {
   public multiplierResistanceBuild: number;
   public multiplierUnitResistanceBuild: string;
 
-
   constructor() {
-    // this.theCalculation = 0
+    this.theCalculation = 0;
     this.sigFigure1ResistanceBuild = 0;
     this.sigFigure2ResistanceBuild = 0;
     this.sigFigure3ResistanceBuild = 0;
@@ -61,19 +60,15 @@ export class ResistanceService {
     return this.toleranceResistanceBuild;
   }
 
-  getCalculation(): string {
+  getCalculation(): number {
     let fullSigFigureString: string = "";
-    let fullSigFigureNumber: number = 0;
     fullSigFigureString = this.getSigFigure1ResistanceBuild().toString() + this.getSigFigure2ResistanceBuild().toString() + this.getSigFigure3ResistanceBuild().toString();
-
-    this.theCalculation = fullSigFigureString;
-    // this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
+    let conversionWithMultiplier: number =  Number(fullSigFigureString) * this.getMultiplierResistanceBuild();
+    this.theCalculation = conversionWithMultiplier;
     return this.theCalculation;
   }
 
   calculationToString(): string {
-    // let calculation: string = this.getCalculation().toString();
-    return this.getCalculation() + this.getMultiplierUnitResistanceBuild() + " +/- " + this.getToleranceResistanceBuild() + "%";
-      // return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
+    return this.getCalculation().toString() + this.getMultiplierUnitResistanceBuild() + " +/- " + this.getToleranceResistanceBuild() + "%";
   }
 }

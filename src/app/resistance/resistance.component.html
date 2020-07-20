@@ -7,27 +7,14 @@
   <div>
     <label for="sigFigs">Digits</label>
     <br>
-    <select name="sigFigs" id="sigFig1" >
-        <option *ngFor="let color of theSigFigures[0].sigFiguresColorList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
-          value="theSigFigures[0].getSigFigureDictValue()"
-          (click)="theSigFigures[0].setSigFigure(color)"
+    <select *ngFor="let sigFig of theSigFigures; index as selectBoxNumber;" name="sigFigs" id="'sigFig' + (selectBoxNumber + 1)" >
+        <option *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList"
+          value="theSigFigures[selectBoxNumber].getSigFigureDictValue()"
+          (click)="theSigFigures[selectBoxNumber].setSigFigure(color)"
           (click)="setMessage()">
           {{ color }}</option>
     </select>
-    <select name="sigFigs" id="sigFig2" >
-        <option *ngFor="let color of theSigFigures[1].sigFiguresColorList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
-          value="theSigFigures[1].getSigFigureDictValue()"
-          (click)="theSigFigures[1].setSigFigure(color)"
-          (click)="setMessage()">
-          {{ color }}</option>
-    </select>
-    <select name="sigFigs" id="sigFig3" >
-        <option *ngFor="let color of theSigFigures[2].sigFiguresColorList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
-          value="theSigFigures[2].getSigFigureDictValue()"
-          (click)="theSigFigures[2].setSigFigure(color)"
-          (click)="setMessage()">
-          {{ color }}</option>
-    </select>
+  </div>
 
   <div>
     <label for="multiply">Multiplier</label>
