@@ -20,7 +20,7 @@
     <label for="multiply">Multiplier</label>
     <br>
     <select name="multiply" id="muliplier">
-      <option *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot; trackBy: trackMultiplierBySlot"
+      <option *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot"
           value="theMultiplier.getMultiplierDictValue()"
           (click)="theMultiplier.setMultiplier(color)"
           (click)="theMultiplier.setMultiplierUnit(color)"
@@ -33,7 +33,7 @@
     <label for="tolerance">Tolerance</label>
     <br>
     <select name="tolerance" id="tolerance">
-      <option *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot; trackBy: trackToleranceBySlot"
+      <option *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot"
           value="theTolerance.getToleranceDictValue()"
           (click)="theTolerance.setTolerance(color)"
           (click)="setMessage()">

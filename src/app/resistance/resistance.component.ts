@@ -33,16 +33,4 @@ export class ResistanceComponent implements OnInit {
     this.resistanceService.addMultiplierUnitResistanceBuild(this.theMultiplier.getMultiplierUnitDictValue());
     this.message = this.resistanceService.calculationToString();
   }
-
-  trackSigFigureBySlot(index, sigFiguresList) {
-    return sigFiguresList.index;
-  }
-
-  trackMultiplierBySlot(index, multiplierList) {
-    return multiplierList.index;
-  }
-
-  trackToleranceBySlot(index, toleranceList) {
-    return toleranceList.index;
-  }
 }
