@@ -12,15 +12,15 @@ describe('successful scenario tests', () => {
   it('initial value and text of selectBoxes', () => {
     helper.loadHome();
 
-    // helper.getIdValueExpectation('sigFig1', '0');
-    // helper.getIdValueExpectation('sigFig2', '0');
-    // helper.getIdValueExpectation('sigFig3', '0');
+    helper.getIdValueExpectation('sigFigBox0Color0', '0');
+    helper.getIdValueExpectation('sigFigBox1Color0', '0');
+    helper.getIdValueExpectation('sigFigBox2Color0', '0');
     helper.getIdValueExpectation('multiplier0', '1');
     helper.getIdValueExpectation('tolerance0', '1');
 
-    helper.getIdTextExpectation('sigFig0', 'black');
-    // helper.getIdTextExpectation('sigFig2', 'black');
-    // helper.getIdTextExpectation('sigFig3', 'black');
+    helper.getIdTextExpectation('sigFigBox0Color0', 'black');
+    helper.getIdTextExpectation('sigFigBox1Color0', 'black');
+    helper.getIdTextExpectation('sigFigBox2Color0', 'black');
     helper.getIdTextExpectation('multiplier0', 'x1');
     helper.getIdTextExpectation('tolerance0', '1%');
   });

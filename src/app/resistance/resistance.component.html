@@ -8,7 +8,7 @@
     <label for="sigFigs">Digits</label>
     <br>
     <select *ngFor="let sigFig of theSigFigures; index as selectBoxNumber;" name="sigFigs">
-        <option [id]="'sigFig' + (sigFigSlot)" *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList; index as sigFigSlot"
+        <option [id]="'sigFigBox' + (selectBoxNumber) + 'Color' + (sigFigSlot) " *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList; index as sigFigSlot"
           [value]="theSigFigures[selectBoxNumber].getSigFigureDictValue()"
           (click)="theSigFigures[selectBoxNumber].setSigFigure(color)"
           (click)="setSigFigureResistanceBuildMessage()">
