@@ -10,50 +10,26 @@ import { Tolerance } from '../model/tolerance';
   styleUrls: ['./resistance.component.css']
 })
 export class ResistanceComponent implements OnInit {
-  // public colors: string[];
   public theSigFigures: Array<SigFigure>;
-  // public sigFigure: SigFigure;
+  public theTolerance: Tolerance;
   public message: string;
-  // public sigFiguresList: string[];
-  // public multiplierList: string[];
-  // public toleranceList: string[];
-  //
   // public multiplierSelectBox: string[];
-  // public toleranceSelectBox: string[];
-  //
-  // public sigFiguresDict: any;
   // public multiplerDict: any;
-  // public toleranceDict: any;
 
 
   constructor(private resistanceService: ResistanceService) { }
 
   ngOnInit(): void {
     this.theSigFigures = [new SigFigure(), new SigFigure(), new SigFigure];
+    this.theTolerance = new Tolerance();
     this.message = "";
     // this.multiplierList = [this.colors[0], this.colors[1], this.colors[2],
     //                       this.colors[3], this.colors[4], this.colors[5],
     //                       this.colors[6], this.colors[7], this.colors[8],
     //                       this.colors[9], this.colors[10], this.colors[11]
     //                       ];
-    // this.toleranceList = [this.colors[1], this.colors[2],
-    //                       this.colors[5], this.colors[6],
-    //                       this.colors[7], this.colors[8],
-    //                       this.colors[10], this.colors[11],
-    //                       this.colors[12]
-    //                       ];
     // this.multiplierSelectBox = ['x1', 'x10', 'x100', 'x1k', 'x10k', 'x100K',
     //                           'x1M', 'x10M', 'x100M', 'x1G', 'x0.1', 'x0.01'];
-    // this.toleranceSelectBox = ['1%', '2%', '.5%', '.25%', '.1%', '0.05%', '5%', '10%', '20%'];
-    //
-    // this.sigFiguresDict = {
-    //                 'black': 0, 'brown': 1,
-    //                 'red': 2, 'orange': 3,
-    //                 'yellow': 4, 'green': 5,
-    //                 'blue': 6, 'violet': 7,
-    //                 'grey': 8, 'white': 9
-    //               };
-    //
     // this.multiplerDict = {
     //                 'black': 'x1', 'brown': 'x10',
     //                 'red': 'x100', 'orange': 'x1K',
@@ -62,40 +38,16 @@ export class ResistanceComponent implements OnInit {
     //                 'grey': 'x100M', 'white': 'x1G',
     //                 'gold': 'x0.1', 'silver': 'x0.01'
     //               };
-    //
-    // this.toleranceDict = {
-    //                 'brown': 1, 'red': 2,
-    //                 'green': .5, 'blue': .25,
-    //                 'violet': .1, 'grey': 0.05,
-    //                 'gold': 5, 'silver': 10,
-    //                 'none': 20
-    //               };
   }
 
   setMessage() {
     this.resistanceService.addSigFigure1ResistanceBuild(this.theSigFigures[0].getSigFigureDictValue());
     this.resistanceService.addSigFigure2ResistanceBuild(this.theSigFigures[1].getSigFigureDictValue());
     this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
-    // this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
+    this.resistanceService.addToleranceResistanceBuild(this.theTolerance.getToleranceDictValue());
     // this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
     this.message = this.resistanceService.calculationToString();
   }
-
-  // getColors(): string[] {
-  //   return this.colors;
-  // }
-
-  // getSigFiguresList(): string[] {
-  //   return this.sigFiguresList;
-  // }
-
-  // getMultiplierList(): string[] {
-  //   return this.multiplierList;
-  // }
-  //
-  // getToleranceList(): string[] {
-  //   return this.toleranceList;
-  // }
 
   trackSigFigureBySlot(index, sigFiguresList) {
     return sigFiguresList.index;

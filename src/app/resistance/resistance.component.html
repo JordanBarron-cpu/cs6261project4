@@ -37,16 +37,18 @@
         value="multiplierList[multiplierSlot]">
         {{ multiplierSelectBox[multiplierSlot] }}</option>
     </select>
-  </div>
+  </div> -->
 
   <div>
     <label for="tolerance">Tolerance</label>
     <br>
     <select name="tolerance" id="tolerance">
-      <option *ngFor="let tolerance of toleranceList; index as toleranceSlot; trackBy: trackToleranceBySlot"
-        value="toleranceList[toleranceSlot]">
-        {{ toleranceSelectBox[toleranceSlot] }}</option>
+      <option *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot; trackBy: trackToleranceBySlot"
+          value="theTolerance.getToleranceDictValue()"
+          (click)="theTolerance.setTolerance(color)"
+          (click)="setMessage()">
+        {{ theTolerance.toleranceDict[color] + '%' }}</option>
     </select>
-  </div> -->
+  </div>
 
 </div>
