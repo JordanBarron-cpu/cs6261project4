@@ -24,7 +24,7 @@ export class Multiplier {
                           'blue': 'M', 'violet': 'M',
                           'grey': 'M', 'white': 'G',
                           'gold': '', 'silver': ''
-    };
+                          };
   }
 
   setMultiplier(color: string) {
