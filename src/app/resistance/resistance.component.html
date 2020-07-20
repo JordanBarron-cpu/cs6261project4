@@ -11,7 +11,7 @@
         <option *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList"
           value="theSigFigures[selectBoxNumber].getSigFigureDictValue()"
           (click)="theSigFigures[selectBoxNumber].setSigFigure(color)"
-          (click)="setMessage()">
+          (click)="setSigFigureResistanceBuildMessage()">
           {{ color }}</option>
     </select>
   </div>
@@ -24,7 +24,7 @@
           value="theMultiplier.getMultiplierDictValue()"
           (click)="theMultiplier.setMultiplier(color)"
           (click)="theMultiplier.setMultiplierUnit(color)"
-          (click)="setMessage()">
+          (click)="setMultiplierAndUnitResistanceBuildMessage()">
         {{ 'x' + theMultiplier.multiplierDict[color] + theMultiplier.multiplierUnitDict[color] }}</option>
     </select>
   </div>
@@ -36,7 +36,7 @@
       <option *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot"
           value="theTolerance.getToleranceDictValue()"
           (click)="theTolerance.setTolerance(color)"
-          (click)="setMessage()">
+          (click)="setToleranceResistanceBuildMessage()">
         {{ theTolerance.toleranceDict[color] + '%' }}</option>
     </select>
   </div>
