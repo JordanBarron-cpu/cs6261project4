@@ -8,8 +8,8 @@ export class Tolerance {
     this.toleranceColorList = ['brown', 'red', 'green', 'blue', 'violet', 'grey', 'gold', 'silver', 'none'];
     this.toleranceDict = {
                             'brown': 1, 'red': 2,
-                            'green': .5, 'blue': .25,
-                            'violet': .1, 'grey': 0.05,
+                            'green': 0.5, 'blue': 0.25,
+                            'violet': 0.1, 'grey': 0.05,
                             'gold': 5, 'silver': 10,
                             'none': 20
                           };

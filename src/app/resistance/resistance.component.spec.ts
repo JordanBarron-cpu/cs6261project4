@@ -32,4 +32,19 @@ describe('ResistanceComponent', () => {
     expect(component.theMultiplier).toEqual(new Multiplier());
     expect(component.message).toEqual("");
   });
+
+  it('should set and get message that displays on html', () => {
+    component.theSigFigures[0].setSigFigure('red');
+    component.theSigFigures[1].setSigFigure('green');
+    component.theSigFigures[2].setSigFigure('blue');
+    component.theMultiplier.setMultiplier('grey');
+    component.theMultiplier.setMultiplierUnit('grey');
+    component.theTolerance.setTolerance('violet');
+    component.setSigFigureResistanceBuildMessage();
+    expect(component.message).toEqual("256 +/- 0%");
+    component.setMultiplierAndUnitResistanceBuildMessage();
+    expect(component.message).toEqual("25600M +/- 0%");
+    component.setToleranceResistanceBuildMessage();
+    expect(component.message).toEqual("25600M +/- 0.1%");
+  });
 });
