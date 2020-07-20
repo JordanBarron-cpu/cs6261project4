@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ResistanceService {
-  private theCalculation: number;
+  public theCalculation: number;
   public sigFigure1ResistanceBuild: number;
   public sigFigure2ResistanceBuild: number;
   public sigFigure3ResistanceBuild: number;
