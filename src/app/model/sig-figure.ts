@@ -17,6 +17,13 @@ export class SigFigure {
   }
 
   setSigFigure(color: string) {
+    if (color == null) {
+      throw "color cannot be null";
+    } else if (color.trim() == '') {
+      throw "color cannot be empty";
+    } else if (this.sigFiguresColorList.includes(color) == false) {
+      throw "color is not in list";
+    }
     this.sigFigure = this.sigFiguresDict[color];
   }
 

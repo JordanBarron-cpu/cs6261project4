@@ -28,10 +28,24 @@ export class Multiplier {
   }
 
   setMultiplier(color: string) {
+    if (color == null) {
+      throw "color cannot be null";
+    } else if (color.trim() == '') {
+      throw "color cannot be empty";
+    } else if (this.multiplierColorList.includes(color) == false) {
+      throw "color is not in list";
+    }
     this.multiplier = this.multiplierDict[color];
   }
 
   setMultiplierUnit(color: string) {
+    if (color == null) {
+      throw "color cannot be null";
+    } else if (color.trim() == '') {
+      throw "color cannot be empty";
+    } else if (this.multiplierColorList.includes(color) == false) {
+      throw "color is not in list";
+    }
     this.multiplierUnit = this.multiplierUnitDict[color];
   }
 
