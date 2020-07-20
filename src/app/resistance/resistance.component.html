@@ -7,9 +7,9 @@
   <div>
     <label for="sigFigs">Digits</label>
     <br>
-    <select *ngFor="let sigFig of theSigFigures; index as selectBoxNumber;" name="sigFigs" id="'sigFig' + (selectBoxNumber + 1)" >
-        <option *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList"
-          value="theSigFigures[selectBoxNumber].getSigFigureDictValue()"
+    <select *ngFor="let sigFig of theSigFigures; index as selectBoxNumber;" name="sigFigs">
+        <option [id]="'sigFig' + (sigFigSlot)" *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList; index as sigFigSlot"
+          [value]="theSigFigures[selectBoxNumber].getSigFigureDictValue()"
           (click)="theSigFigures[selectBoxNumber].setSigFigure(color)"
           (click)="setSigFigureResistanceBuildMessage()">
           {{ color }}</option>
@@ -19,9 +19,9 @@
   <div>
     <label for="multiply">Multiplier</label>
     <br>
-    <select name="multiply" id="muliplier">
-      <option *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot"
-          value="theMultiplier.getMultiplierDictValue()"
+    <select name="multiply">
+      <option [id]="'multiplier' + (multiplierSlot)" *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot"
+          [value]="theMultiplier.getMultiplierDictValue()"
           (click)="theMultiplier.setMultiplier(color)"
           (click)="theMultiplier.setMultiplierUnit(color)"
           (click)="setMultiplierAndUnitResistanceBuildMessage()">
@@ -32,9 +32,9 @@
   <div>
     <label for="tolerance">Tolerance</label>
     <br>
-    <select name="tolerance" id="tolerance">
-      <option *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot"
-          value="theTolerance.getToleranceDictValue()"
+    <select name="tolerance">
+      <option [id]="'tolerance' + (toleranceSlot)" *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot"
+          [value]="theTolerance.getToleranceDictValue()"
           (click)="theTolerance.setTolerance(color)"
           (click)="setToleranceResistanceBuildMessage()">
         {{ theTolerance.toleranceDict[color] + '%' }}</option>
