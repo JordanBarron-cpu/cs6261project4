@@ -80,4 +80,36 @@ describe('ResistanceService', () => {
 
     expect(service.calculationToString()).toEqual("2450M +/- 0.25%");
   });
+
+  it('should throw errors', () => {
+    let result = function() {
+      service.addSigFigure1ResistanceBuild(-1);
+    }
+    expect(result).toThrow("sigFigure1 value out of range");
+
+    let result2 = function() {
+      service.addSigFigure2ResistanceBuild(-2);
+    }
+    expect(result2).toThrow("sigFigure2 value out of range");
+
+    let result3 = function() {
+      service.addSigFigure3ResistanceBuild(11);
+    }
+    expect(result3).toThrow("sigFigure3 value out of range");
+
+    let result4 = function() {
+      service.addMultiplierResistanceBuild(2);
+    }
+    expect(result4).toThrow("multiplier value out of range");
+
+    let result5 = function() {
+      service.addMultiplierUnitResistanceBuild('P');
+    }
+    expect(result5).toThrow("multiplier unit value out of range");
+
+    let result6 = function() {
+      service.addToleranceResistanceBuild(3);
+    }
+    expect(result6).toThrow("tolerance value out of range");
+  });
 });

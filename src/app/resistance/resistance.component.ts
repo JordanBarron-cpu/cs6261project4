@@ -25,21 +25,33 @@ export class ResistanceComponent implements OnInit {
   }
 
   setSigFigureResistanceBuildMessage() {
-    this.resistanceService.addSigFigure1ResistanceBuild(this.theSigFigures[0].getSigFigureDictValue());
-    this.resistanceService.addSigFigure2ResistanceBuild(this.theSigFigures[1].getSigFigureDictValue());
-    this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
-    this.setMessage();
+    try {
+      this.resistanceService.addSigFigure1ResistanceBuild(this.theSigFigures[0].getSigFigureDictValue());
+      this.resistanceService.addSigFigure2ResistanceBuild(this.theSigFigures[1].getSigFigureDictValue());
+      this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
+      this.setMessage();
+    } catch(err) {
+      this.message = err;
+    }
   }
 
   setMultiplierAndUnitResistanceBuildMessage() {
-    this.resistanceService.addMultiplierResistanceBuild(this.theMultiplier.getMultiplierDictValue());
-    this.resistanceService.addMultiplierUnitResistanceBuild(this.theMultiplier.getMultiplierUnitDictValue());
-    this.setMessage();
+    try {
+      this.resistanceService.addMultiplierResistanceBuild(this.theMultiplier.getMultiplierDictValue());
+      this.resistanceService.addMultiplierUnitResistanceBuild(this.theMultiplier.getMultiplierUnitDictValue());
+      this.setMessage();
+    } catch(err) {
+      this.message = err;
+    }
   }
 
   setToleranceResistanceBuildMessage() {
-    this.resistanceService.addToleranceResistanceBuild(this.theTolerance.getToleranceDictValue());
-    this.setMessage();
+    try {
+      this.resistanceService.addToleranceResistanceBuild(this.theTolerance.getToleranceDictValue());
+      this.setMessage();
+    } catch(err) {
+      this.message = err;
+    }
   }
 
   setMessage() {
