@@ -35,7 +35,7 @@ export class ResistanceService {
   addMultiplierResistanceBuild(multiplierDictValue: number) {
     this.multiplierResistanceBuild = multiplierDictValue;
   }
-  addMultiplierUnitResistanceBuild(multiplierUnitDict: string) {
+  addMultiplierUnitResistanceBuild(multiplierUnitDictValue: string) {
     this.multiplierUnitResistanceBuild = multiplierUnitDictValue;
   }
   addToleranceResistanceBuild(toleranceDictValue: number) {
@@ -62,10 +62,9 @@ export class ResistanceService {
   }
 
   getCalculation(): string {
-    let fullSigFigure: Array<number> = [this.sigFigure1ResistanceBuild, this.sigFigure2ResistanceBuild, this.sigFigure3ResistanceBuild];
     let fullSigFigureString: string = "";
     let fullSigFigureNumber: number = 0;
-    fullSigFigureString = getSigFigure1ResistanceBuild().toString() + getSigFigure2ResistanceBuild().toString() + getSigFigure3ResistanceBuild().toString();
+    fullSigFigureString = this.getSigFigure1ResistanceBuild().toString() + this.getSigFigure2ResistanceBuild().toString() + this.getSigFigure3ResistanceBuild().toString();
 
     this.theCalculation = fullSigFigureString;
     // this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
@@ -74,7 +73,7 @@ export class ResistanceService {
 
   calculationToString(): string {
     // let calculation: string = this.getCalculation().toString();
-    return this.getCalculation() + getMultiplierUnitResistanceBuild() + " +/- " + this.getToleranceResistanceBuild() + "%";
+    return this.getCalculation() + this.getMultiplierUnitResistanceBuild() + " +/- " + this.getToleranceResistanceBuild() + "%";
       // return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
   }
 }

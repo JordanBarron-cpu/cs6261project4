@@ -3,6 +3,7 @@ export class Multiplier {
   private multiplierDict: any;
   public multiplier: number;
   public multiplierUnitDict: any;
+  public multiplierUnit: string;
 
   constructor() {
     this.multiplier = 1;
@@ -34,7 +35,7 @@ export class Multiplier {
     this.multiplierUnit = this.multiplierUnitDict[color];
   }
 
-  getMultiplierUnitDictValue(): number {
+  getMultiplierUnitDictValue(): string {
     return this.multiplierUnit;
   }
 

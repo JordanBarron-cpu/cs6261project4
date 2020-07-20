@@ -30,7 +30,7 @@ export class ResistanceComponent implements OnInit {
     this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
     this.resistanceService.addToleranceResistanceBuild(this.theTolerance.getToleranceDictValue());
     // this.resistanceService.addMultiplierResistanceBuild(this.theMultiplier.getMultiplierDictValue());
-    this.resistanceService.addMultiplierUnitResistanceBuild(this.theMultiplier.getMultiplierUnitResistanceBuildDictValue());
+    this.resistanceService.addMultiplierUnitResistanceBuild(this.theMultiplier.getMultiplierUnitDictValue());
     this.message = this.resistanceService.calculationToString();
   }
 
