@@ -29,15 +29,18 @@
           {{ color }}</option>
     </select>
 
-  <!-- <div>
+  <div>
     <label for="multiply">Multiplier</label>
     <br>
     <select name="multiply" id="muliplier">
-      <option *ngFor="let multiplier of multiplierList; index as multiplierSlot; trackBy: trackMultiplierBySlot"
-        value="multiplierList[multiplierSlot]">
-        {{ multiplierSelectBox[multiplierSlot] }}</option>
+      <option *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot; trackBy: trackMultiplierBySlot"
+          value="theMultiplier.getMultiplierDictValue()"
+          (click)="theMultiplier.setMultiplier(color)"
+          (click)="theMultiplier.setMultiplierUnit(color)"
+          (click)="setMessage()">
+        {{ 'x' + theMultiplier.multiplierDict[color] + theMultiplier.multiplierUnitDict[color] }}</option>
     </select>
-  </div> -->
+  </div>
 
   <div>
     <label for="tolerance">Tolerance</label>

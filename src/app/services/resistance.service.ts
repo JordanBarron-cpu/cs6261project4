@@ -9,9 +9,8 @@ export class ResistanceService {
   public sigFigure2ResistanceBuild: number;
   public sigFigure3ResistanceBuild: number;
   public toleranceResistanceBuild: number;
-  public multiplierDict: any;
-  public multiplier: number;
-  public multiplierUnit: string;
+  public multiplierResistanceBuild: number;
+  public multiplierUnitResistanceBuild: string;
 
 
   constructor() {
@@ -20,15 +19,8 @@ export class ResistanceService {
     this.sigFigure2ResistanceBuild = 0;
     this.sigFigure3ResistanceBuild = 0;
     this.toleranceResistanceBuild = 0.0;
-
-    // this.multiplierDict = {
-    //                 'black': 1, 'brown': 10,
-    //                 'red': 100, 'orange': 1,
-    //                 'yellow': 10, 'green': 100,
-    //                 'blue': 1, 'violet': 10,
-    //                 'grey': 100, 'white': 1,
-    //                 'gold': 0.1, 'silver': 0.01
-    //               };
+    this.multiplierResistanceBuild = 1;
+    this.multiplierUnitResistanceBuild = '';
   }
 
   addSigFigure1ResistanceBuild(sigFigure1DictValue: number) {
@@ -40,31 +32,16 @@ export class ResistanceService {
   addSigFigure3ResistanceBuild(sigFigure3DictValue: number) {
       this.sigFigure3ResistanceBuild = sigFigure3DictValue;
   }
-
-  // setMultiplier(color: string) {
-  //   this.multiplier = this.multiplierDict[color];
-  //   if (color == "black" || color == "brown" || color == "red" || color == "gold" || color == "silver") {
-  //     this.multiplierUnit = '';
-  //   } else if(color == "orange" || color == "yellow" || color == "green") {
-  //     this.multiplierUnit = 'K';
-  //   } else if(color == "blue" || color == "violet" || color == "grey") {
-  //     this.multiplierUnit = 'G';
-  //   } else {
-  //     this.multiplierUnit = 'M';
-  //   }
-  // }
-
+  addMultiplierResistanceBuild(multiplierDictValue: number) {
+    this.multiplierResistanceBuild = multiplierDictValue;
+  }
+  addMultiplierUnitResistanceBuild(multiplierUnitDict: string) {
+    this.multiplierUnitResistanceBuild = multiplierUnitDictValue;
+  }
   addToleranceResistanceBuild(toleranceDictValue: number) {
     this.toleranceResistanceBuild = toleranceDictValue;
   }
-  // getMultiplier(): number  {
-  //   return this.multiplier;
-  // }
-  //
-  // getMultiplierUnit(): string {
-  //   return this.multiplierUnit;
-  // }
-  //
+
   getSigFigure1ResistanceBuild() {
     return this.sigFigure1ResistanceBuild;
   }
@@ -74,6 +51,12 @@ export class ResistanceService {
   getSigFigure3ResistanceBuild() {
     return this.sigFigure3ResistanceBuild;
   }
+  getMultiplierResistanceBuild() {
+    return this.multiplierResistanceBuild;
+  }
+  getMultiplierUnitResistanceBuild() {
+    return this.multiplierUnitResistanceBuild;
+  }
   getToleranceResistanceBuild(): number {
     return this.toleranceResistanceBuild;
   }
@@ -82,7 +65,7 @@ export class ResistanceService {
     let fullSigFigure: Array<number> = [this.sigFigure1ResistanceBuild, this.sigFigure2ResistanceBuild, this.sigFigure3ResistanceBuild];
     let fullSigFigureString: string = "";
     let fullSigFigureNumber: number = 0;
-    fullSigFigureString = fullSigFigure[0].toString() + fullSigFigure[1].toString() + fullSigFigure[2].toString();
+    fullSigFigureString = getSigFigure1ResistanceBuild().toString() + getSigFigure2ResistanceBuild().toString() + getSigFigure3ResistanceBuild().toString();
 
     this.theCalculation = fullSigFigureString;
     // this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
@@ -91,7 +74,7 @@ export class ResistanceService {
 
   calculationToString(): string {
     // let calculation: string = this.getCalculation().toString();
-    return this.getCalculation() + " +/- " + this.getToleranceResistanceBuild() + "%";
+    return this.getCalculation() + getMultiplierUnitResistanceBuild() + " +/- " + this.getToleranceResistanceBuild() + "%";
       // return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
   }
 }
