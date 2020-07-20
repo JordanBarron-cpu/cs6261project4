@@ -4,9 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ResistanceService {
-  public sigFigureResistanceBuild: number;
+  public sigFigure1ResistanceBuild: number;
+  public sigFigure2ResistanceBuild: number;
+  public sigFigure3ResistanceBuild: number;
   // public colors: string[];
-  private theCalculation: number;
+  private theCalculation: string;
   // public sigFiguresDict: any;
   public multiplierDict: any;
   public toleranceDict: any;
@@ -18,7 +20,11 @@ export class ResistanceService {
   public tolerance: number;
 
   constructor() {
-      this.sigFigureResistanceBuild = 0;
+    // this.theCalculation = 0
+      this.sigFigure1ResistanceBuild = 0;
+      this.sigFigure2ResistanceBuild = 0;
+      this.sigFigure3ResistanceBuild = 0;
+
     // this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
     //             'violet', 'grey', 'white', 'gold', 'silver', 'none'];
     // this.theCalculation = 0;
@@ -49,10 +55,15 @@ export class ResistanceService {
                   };
   }
 
-  addSigFigureResistanceBuild(sigFigureDictValue: number) {
-      this.sigFigureResistanceBuild = sigFigureDictValue;
+  addSigFigure1ResistanceBuild(sigFigure1DictValue: number) {
+      this.sigFigure1ResistanceBuild = sigFigure1DictValue;
   }
-
+  addSigFigure2ResistanceBuild(sigFigure2DictValue: number) {
+      this.sigFigure2ResistanceBuild = sigFigure2DictValue;
+  }
+  addSigFigure3ResistanceBuild(sigFigure3DictValue: number) {
+      this.sigFigure3ResistanceBuild = sigFigure3DictValue;
+  }
   // setSigFigure1(color: string) {
   //   this.sigFigure1 = this.sigFiguresDict[color];
   // }
@@ -65,22 +76,22 @@ export class ResistanceService {
   //   this.sigFigure3 = this.sigFiguresDict[color];
   // }
 
-  setMultiplier(color: string) {
-    this.multiplier = this.multiplierDict[color];
-    if (color == "black" || color == "brown" || color == "red" || color == "gold" || color == "silver") {
-      this.multiplierUnit = '';
-    } else if(color == "orange" || color == "yellow" || color == "green") {
-      this.multiplierUnit = 'K';
-    } else if(color == "blue" || color == "violet" || color == "grey") {
-      this.multiplierUnit = 'G';
-    } else {
-      this.multiplierUnit = 'M';
-    }
-  }
-
-  setTolerance(color: string) {
-    this.tolerance = this.toleranceDict[color];
-  }
+  // setMultiplier(color: string) {
+  //   this.multiplier = this.multiplierDict[color];
+  //   if (color == "black" || color == "brown" || color == "red" || color == "gold" || color == "silver") {
+  //     this.multiplierUnit = '';
+  //   } else if(color == "orange" || color == "yellow" || color == "green") {
+  //     this.multiplierUnit = 'K';
+  //   } else if(color == "blue" || color == "violet" || color == "grey") {
+  //     this.multiplierUnit = 'G';
+  //   } else {
+  //     this.multiplierUnit = 'M';
+  //   }
+  // }
+  //
+  // setTolerance(color: string) {
+  //   this.tolerance = this.toleranceDict[color];
+  // }
 
   // getSigFigure1(): number  {
   //   return this.sigFigure1;
@@ -91,30 +102,47 @@ export class ResistanceService {
   // getSigFigure3(): number  {
   //   return this.sigFigure3;
   // }
-  getSigFigureResistanceBuild() {
-    return this.sigFigureResistanceBuild;
-  }
+  // getSigFigure1ResistanceBuild() {
+  //   return this.sigFigure1ResistanceBuild;
+  // }
+  // getSigFigure2ResistanceBuild() {
+  //   return this.sigFigure2ResistanceBuild;
+  // }
+  // getSigFigure3ResistanceBuild() {
+  //   return this.sigFigure3ResistanceBuild;
+  // }
+  //
+  // getMultiplier(): number  {
+  //   return this.multiplier;
+  // }
+  //
+  // getMultiplierUnit(): string {
+  //   return this.multiplierUnit;
+  // }
+  //
+  // getTolerance(): number {
+  //   return this.tolerance;
+  // }
 
-  getMultiplier(): number  {
-    return this.multiplier;
-  }
+  getCalculation(): string {
+    let fullSigFigure: Array<number> = [this.sigFigure1ResistanceBuild, this.sigFigure2ResistanceBuild, this.sigFigure3ResistanceBuild];
+    let fullSigFigureString: string = "";
+    let fullSigFigureNumber: number = 0;
+    fullSigFigureString = fullSigFigure[0].toString() + fullSigFigure[1].toString() + fullSigFigure[2].toString();
+    //
+    // for (let sigFigure of fullSigFigure) {
+    //   fullSigFigureString += fullSigFigure[sigFigure];
+    // }
+    // fullSigFigureNumber = Number(fullSigFigureString);
 
-  getMultiplierUnit(): string {
-    return this.multiplierUnit;
-  }
-
-  getTolerance(): number {
-    return this.tolerance;
-  }
-
-  getCalculation(): number {
-    this.theCalculation = this.getSigFigureResistanceBuild();
+    this.theCalculation = fullSigFigureString;
     // this.theCalculation = this.getSigFigure1() + this.getSigFigure2() + this.getSigFigure3() * this.getMultiplier();
     return this.theCalculation;
   }
 
   calculationToString(): string {
-    return this.getCalculation() + "";
+    // let calculation: string = this.getCalculation().toString();
+    return this.getCalculation() + "M +/- .1%";
       // return this.getCalculation() + this.getMultiplierUnit() + " +/- " + this.getTolerance() + "%";
   }
 }

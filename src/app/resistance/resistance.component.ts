@@ -11,7 +11,8 @@ import { Tolerance } from '../model/tolerance';
 })
 export class ResistanceComponent implements OnInit {
   // public colors: string[];
-  public sigFigure: SigFigure;
+  public theSigFigures: Array<SigFigure>;
+  // public sigFigure: SigFigure;
   public message: string;
   // public sigFiguresList: string[];
   // public multiplierList: string[];
@@ -28,16 +29,8 @@ export class ResistanceComponent implements OnInit {
   constructor(private resistanceService: ResistanceService) { }
 
   ngOnInit(): void {
-    this.sigFigure = new SigFigure();
+    this.theSigFigures = [new SigFigure(), new SigFigure(), new SigFigure];
     this.message = "";
-    // this.colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
-    //             'violet', 'grey', 'white', 'gold', 'silver', 'none'];
-
-    // this.sigFiguresList = [this.colors[0], this.colors[1], this.colors[2],
-    //                       this.colors[3], this.colors[4], this.colors[5],
-    //                       this.colors[6], this.colors[7], this.colors[8],
-    //                       this.colors[9]
-    //                       ];
     // this.multiplierList = [this.colors[0], this.colors[1], this.colors[2],
     //                       this.colors[3], this.colors[4], this.colors[5],
     //                       this.colors[6], this.colors[7], this.colors[8],
@@ -80,10 +73,12 @@ export class ResistanceComponent implements OnInit {
   }
 
   setMessage() {
-    if (this.sigFigure.getSigFigureDictValue()) {
-      this.resistanceService.addSigFigureResistanceBuild(this.sigFigure.getSigFigureDictValue());
-      this.message = this.resistanceService.calculationToString();
-    }
+    this.resistanceService.addSigFigure1ResistanceBuild(this.theSigFigures[0].getSigFigureDictValue());
+    this.resistanceService.addSigFigure2ResistanceBuild(this.theSigFigures[1].getSigFigureDictValue());
+    this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
+    // this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
+    // this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
+    this.message = this.resistanceService.calculationToString();
   }
 
   // getColors(): string[] {

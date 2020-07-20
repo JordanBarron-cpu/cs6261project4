@@ -1,10 +1,11 @@
 export class SigFigure {
-  public sigFiguresList: string[];
+  public sigFiguresColorList: string[];
   private sigFiguresDict: any;
   public sigFigure: number;
 
   constructor() {
-    this.sigFiguresList = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
+    this.sigFigure = 0;
+    this.sigFiguresColorList = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
                 'violet', 'grey', 'white'];
     this.sigFiguresDict = {
                             'black': 0, 'brown': 1,

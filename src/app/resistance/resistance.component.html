@@ -1,6 +1,6 @@
 <div class="resistanceComponent">
   <div>
-    <b>{{ message }}</b>
+    <b>{{ "Resistance: " + message }}</b>
   </div>
 
   <p>Select bands</p>
@@ -8,25 +8,28 @@
     <label for="sigFigs">Digits</label>
     <br>
     <select name="sigFigs" id="sigFig1" >
-        <option *ngFor="let sigFig of sigFigure.sigFiguresList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
-          value="sigFigure.getSigFigureDictValue()"
-          (click)="sigFigure.setSigFigure(sigFig)"
+        <option *ngFor="let color of theSigFigures[0].sigFiguresColorList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
+          value="theSigFigures[0].getSigFigureDictValue()"
+          (click)="theSigFigures[0].setSigFigure(color)"
           (click)="setMessage()">
-          {{ sigFig }}</option>
+          {{ color }}</option>
     </select>
-    <!-- <select name="sigFigs" id="sigFig2">
-      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
-        value="sigFiguresList[sigFigSpot]">
-        {{ sigFiguresList[sigFigSpot] }}</option>
+    <select name="sigFigs" id="sigFig2" >
+        <option *ngFor="let color of theSigFigures[1].sigFiguresColorList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
+          value="theSigFigures[1].getSigFigureDictValue()"
+          (click)="theSigFigures[1].setSigFigure(color)"
+          (click)="setMessage()">
+          {{ color }}</option>
     </select>
-    <select name="sigFigs" id="sigFig3">
-      <option *ngFor="let sigFig of sigFiguresList; index as sigFigSpot; trackBy: trackSigFigBySlot"
-        value="sigFiguresList[sigFigSpot]">
-        {{ sigFiguresList[sigFigSpot] }}</option> -->
-    <!-- </select> -->
-  <!-- </div>
+    <select name="sigFigs" id="sigFig3" >
+        <option *ngFor="let color of theSigFigures[2].sigFiguresColorList; index as sigFigureSpot; trackBy: trackSigFigureBySlot"
+          value="theSigFigures[2].getSigFigureDictValue()"
+          (click)="theSigFigures[2].setSigFigure(color)"
+          (click)="setMessage()">
+          {{ color }}</option>
+    </select>
 
-  <div>
+  <!-- <div>
     <label for="multiply">Multiplier</label>
     <br>
     <select name="multiply" id="muliplier">
