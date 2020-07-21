@@ -1,44 +1,48 @@
 <div class="resistanceComponent">
-  <div>
-    <b id="resistanceMessage">{{ "Resistance: " + message }}</b>
-  </div>
+    <div>
+      <b id="resistanceMessage">{{ 'Resistance: ' + message }}</b>
+    </div>
 
-  <p>Select bands</p>
-  <div>
-    <label for="sigFigs">Digits</label>
-    <br>
-    <select *ngFor="let sigFig of theSigFigures; index as selectBoxNumber;" name="sigFigs">
-        <option [id]="'sigFigBox' + (selectBoxNumber) + 'Color' + (sigFigSlot) " *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList; index as sigFigSlot"
-          [value]="theSigFigures[selectBoxNumber].getSigFigureDictValue()"
+      <p>Select bands</p>
+      <div>
+        <label for="sigFigs">Digits</label>
+        <br>
+        <select *ngFor="let sigFig of theSigFigures; index as selectBoxNumber;" name="sigFigs">
+          <option [id]="'sigFigBox' + (selectBoxNumber) + 'Color' + (sigFigSlot) " *ngFor="let color of theSigFigures[selectBoxNumber].sigFiguresColorList; index as sigFigSlot"
+          [value]="theSigFigures[selectBoxNumber].sigFiguresDict[color]"
           (click)="theSigFigures[selectBoxNumber].setSigFigure(color)"
-          (click)="setSigFigureResistanceBuildMessage()">
+          (click)="setSigFigureResistanceBuildMessage()"
+          >
           {{ color }}</option>
-    </select>
-  </div>
+        </select>
+      </div>
 
-  <div>
-    <label for="multiply">Multiplier</label>
-    <br>
-    <select name="multiply">
-      <option [id]="'multiplier' + (multiplierSlot)" *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot"
-          [value]="theMultiplier.getMultiplierDictValue()"
+      <div>
+        <label for="multiply">Multiplier</label>
+        <br>
+        <select name="multiply" class="multipliers">
+          <option [id]="'multiplier' + (multiplierSlot)"
+          *ngFor="let color of theMultiplier.multiplierColorList; index as multiplierSlot"
+          [value]="theMultiplier.multiplierDict[color]"
           (click)="theMultiplier.setMultiplier(color)"
           (click)="theMultiplier.setMultiplierUnit(color)"
           (click)="setMultiplierAndUnitResistanceBuildMessage()">
-        {{ 'x' + theMultiplier.multiplierDict[color] + theMultiplier.multiplierUnitDict[color] }}</option>
-    </select>
-  </div>
+          {{ 'x' + theMultiplier.multiplierDict[color] + theMultiplier.multiplierUnitDict[color] }}</option>
+        </select>
+      </div>
 
-  <div>
-    <label for="tolerance">Tolerance</label>
-    <br>
-    <select name="tolerance">
-      <option [id]="'tolerance' + (toleranceSlot)" *ngFor="let color of theTolerance.toleranceColorList; index as toleranceSlot"
-          [value]="theTolerance.getToleranceDictValue()"
+      <div>
+        <label for="tolerance">Tolerance</label>
+        <br>
+        <select name="tolerance" class="tolerances">
+          <option
+          *ngFor="let color of theTolerance.toleranceColorList; index as spot"
+          [id]="'tolerance' + (spot)"
+          [value]="theTolerance.toleranceDict[color]"
           (click)="theTolerance.setTolerance(color)"
           (click)="setToleranceResistanceBuildMessage()">
-        {{ theTolerance.toleranceDict[color] + '%' }}</option>
-    </select>
-  </div>
+          {{ theTolerance.toleranceDict[color] + '%' }}</option>
+        </select>
+      </div>
 
 </div>
