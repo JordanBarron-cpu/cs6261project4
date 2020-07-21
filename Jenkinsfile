@@ -39,11 +39,6 @@ pipeline {
       sh 'docker rm testcontainer || true'
       sh 'docker image rm myimage:testimage || true'
       sh 'docker image rm node:12 || true'
-
-      sh 'docker stop deploycontainer || true'
-      sh 'docker rm deploycontainer || true'
-      sh 'docker image rm finalimage:deployimage || true'
-      sh 'docker image rm node:12 || true'
     }
   }
 }
