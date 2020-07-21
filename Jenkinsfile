@@ -27,7 +27,8 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        echo 'Not Yet Implemented'
+        sh 'docker build . --tag finalimage:deployimage'
+        sh 'docker run --name=deploycontainer -d -v $WORKSPACE:/app -p 5000:4200 finalimage:deployimage'
       }
     }
   }
@@ -37,6 +38,11 @@ pipeline {
       sh 'docker stop testcontainer || true'
       sh 'docker rm testcontainer || true'
       sh 'docker image rm myimage:testimage || true'
+      sh 'docker image rm node:12 || true'
+
+      sh 'docker stop deploycontainer || true'
+      sh 'docker rm deploycontainer || true'
+      sh 'docker image rm finalimage:deployimage || true'
       sh 'docker image rm node:12 || true'
     }
   }
