@@ -3,7 +3,7 @@ FROM node:12
 WORKDIR /app
 
 RUN npm install -g @angular/cli
-RUN sudo npm install --global http-server
+RUN npm install --global http-server
 EXPOSE 4200
 COPY ./myScript.sh ./myScript.sh
 
