@@ -11,7 +11,7 @@ loads the home page
     browser.get('/index.html');
   }
 
-  idClick(className: string, index: number) {
+  classClick(className: string, index: number) {
     let dropdown = element.all(by.css("." + className + " option"));
     dropdown.get(index).click();
   }
@@ -27,13 +27,5 @@ loads the home page
   getIdTextExpectation(idName: string, textExpectation: string) {
     let actualIdText = element(by.id(idName)).getText();
     expect(actualIdText).toEqual(textExpectation);
-  }
-
-  /**
-  returns the value of an id
-  */
-  getIdValueExpectation(idName: string, valueExpectation: string) {
-    let actualIdValue = element(by.id(idName)).getAttribute('value');
-    expect(actualIdValue).toEqual(valueExpectation);
   }
 }

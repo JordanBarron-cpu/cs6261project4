@@ -22,10 +22,19 @@ describe('successful scenario tests', () => {
   it('dropdowns clicked and update registration message successfully', () => {
     helper.loadHome();
 
-    helper.idClick('tolerances', 1);
+    helper.classClick('tolerances', 1);
     helper.getIdTextExpectation('resistanceMessage', 'Resistance: 0 +/- 2%');
 
-    helper.idClick('multipliers', 8);
+    helper.classClick('multipliers', 8);
     helper.getIdTextExpectation('resistanceMessage', 'Resistance: 0M +/- 2%');
+
+    helper.classClick('sigFigures0', 2);
+    helper.getIdTextExpectation('resistanceMessage', 'Resistance: 20000M +/- 2%');
+
+    helper.classClick('sigFigures1', 5);
+    helper.getIdTextExpectation('resistanceMessage', 'Resistance: 25000M +/- 2%');
+
+    helper.classClick('sigFigures2', 6);
+    helper.getIdTextExpectation('resistanceMessage', 'Resistance: 25600M +/- 2%');
   });
 });

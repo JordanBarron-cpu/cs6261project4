@@ -13,7 +13,7 @@
         [ngModel]="theSigFigures[i].sigFiguresDict"
         (ngModelChange)="setSigFigureResistanceBuildMessage(i, $event)"
         name="sigFigs"
-        class="'sigFigures' + (i)">
+        class="{{ 'sigFigures' + i}}">
           <option
           *ngFor="let color of theSigFigures[i].sigFiguresColorList"
           [ngValue]="color"
