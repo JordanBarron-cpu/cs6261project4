@@ -34,17 +34,21 @@ describe('ResistanceComponent', () => {
   });
 
   it('should set and get message that displays on html', () => {
-    component.theSigFigures[0].setSigFigure('red');
-    component.theSigFigures[1].setSigFigure('green');
-    component.theSigFigures[2].setSigFigure('blue');
-    component.theMultiplier.setMultiplier('grey');
-    component.theMultiplier.setMultiplierUnit('grey');
-    component.theTolerance.setTolerance('violet');
-    component.setSigFigureResistanceBuildMessage();
+    // component.theSigFigures[0].setSigFigure('red');
+    // component.theSigFigures[1].setSigFigure('green');
+    // component.theSigFigures[2].setSigFigure('blue');
+    // component.theMultiplier.setMultiplier('grey');
+    // component.theMultiplier.setMultiplierUnit('grey');
+    // component.theTolerance.setTolerance('violet');
+    component.setSigFigureResistanceBuildMessage(0, 'red');
+    expect(component.message).toEqual("200 +/- 0%");
+    component.setSigFigureResistanceBuildMessage(1, 'green');
+    expect(component.message).toEqual("250 +/- 0%");
+    component.setSigFigureResistanceBuildMessage(2, 'blue');
     expect(component.message).toEqual("256 +/- 0%");
-    component.setMultiplierAndUnitResistanceBuildMessage();
+    component.setMultiplierAndUnitResistanceBuildMessage('grey');
     expect(component.message).toEqual("25600M +/- 0%");
-    component.setToleranceResistanceBuildMessage();
+    component.setToleranceResistanceBuildMessage('violet');
     expect(component.message).toEqual("25600M +/- 0.1%");
   });
 });

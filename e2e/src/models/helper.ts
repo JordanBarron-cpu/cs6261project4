@@ -11,6 +11,16 @@ loads the home page
     browser.get('/index.html');
   }
 
+  idClick(className: string, index: number) {
+    let dropdown = element.all(by.css("." + className + " option"));
+    dropdown.get(index).click();
+  }
+
+  doesSelectBoxExist(className: string) {
+    let result = element(by.css("." + className))
+    expect(result).toBeTruthy();
+  }
+
   /**
   returns the text of an id
   */

@@ -18,7 +18,8 @@ export class Tolerance {
   setTolerance(color: string) {
     if (color == null) {
       throw "color cannot be null";
-    } else if (color.trim() == '') {
+    }
+    else if (color.trim() == '') {
       throw "color cannot be empty";
     } else if (this.toleranceColorList.includes(color) == false) {
       throw "color is not in list";

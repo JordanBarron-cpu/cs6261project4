@@ -24,8 +24,9 @@ export class ResistanceComponent implements OnInit {
     this.message = "";
   }
 
-  setSigFigureResistanceBuildMessage() {
+  setSigFigureResistanceBuildMessage(index: number, event: any) {
     try {
+      this.theSigFigures[index].setSigFigure(event);
       this.resistanceService.addSigFigure1ResistanceBuild(this.theSigFigures[0].getSigFigureDictValue());
       this.resistanceService.addSigFigure2ResistanceBuild(this.theSigFigures[1].getSigFigureDictValue());
       this.resistanceService.addSigFigure3ResistanceBuild(this.theSigFigures[2].getSigFigureDictValue());
@@ -35,8 +36,10 @@ export class ResistanceComponent implements OnInit {
     }
   }
 
-  setMultiplierAndUnitResistanceBuildMessage() {
+  setMultiplierAndUnitResistanceBuildMessage(event: any) {
     try {
+      this.theMultiplier.setMultiplier(event);
+      this.theMultiplier.setMultiplierUnit(event);
       this.resistanceService.addMultiplierResistanceBuild(this.theMultiplier.getMultiplierDictValue());
       this.resistanceService.addMultiplierUnitResistanceBuild(this.theMultiplier.getMultiplierUnitDictValue());
       this.setMessage();
@@ -45,8 +48,9 @@ export class ResistanceComponent implements OnInit {
     }
   }
 
-  setToleranceResistanceBuildMessage() {
+  setToleranceResistanceBuildMessage(event: any) {
     try {
+      this.theTolerance.setTolerance(event);
       this.resistanceService.addToleranceResistanceBuild(this.theTolerance.getToleranceDictValue());
       this.setMessage();
     } catch(err) {

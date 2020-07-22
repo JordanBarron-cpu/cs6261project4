@@ -9,19 +9,23 @@ describe('successful scenario tests', () => {
     helper.getIdTextExpectation('resistanceMessage', 'Resistance:');
   });
 
-  it('initial value and text of selectBoxes', () => {
+  it('check if selectBoxes exist', () => {
     helper.loadHome();
 
-    helper.getIdValueExpectation('sigFigBox0Color0', '0');
-    helper.getIdValueExpectation('sigFigBox1Color0', '0');
-    helper.getIdValueExpectation('sigFigBox2Color0', '0');
-    helper.getIdValueExpectation('multiplier0', '1');
-    helper.getIdValueExpectation('tolerance0', '1');
+    helper.doesSelectBoxExist('multipliers');
+    helper.doesSelectBoxExist('tolerances');
+    helper.doesSelectBoxExist('sigFigures0');
+    helper.doesSelectBoxExist('sigFigure1');
+    helper.doesSelectBoxExist('sigFigures2');
+  });
 
-    helper.getIdTextExpectation('sigFigBox0Color0', 'black');
-    helper.getIdTextExpectation('sigFigBox1Color0', 'black');
-    helper.getIdTextExpectation('sigFigBox2Color0', 'black');
-    helper.getIdTextExpectation('multiplier0', 'x1');
-    helper.getIdTextExpectation('tolerance0', '1%');
+  it('dropdowns clicked and update registration message successfully', () => {
+    helper.loadHome();
+
+    helper.idClick('tolerances', 1);
+    helper.getIdTextExpectation('resistanceMessage', 'Resistance: 0 +/- 2%');
+
+    helper.idClick('multipliers', 8);
+    helper.getIdTextExpectation('resistanceMessage', 'Resistance: 0M +/- 2%');
   });
 });
